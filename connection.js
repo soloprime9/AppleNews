@@ -1,8 +1,9 @@
 //connection.js file
 const mongoose = require("mongoose");
 
-// mongodb+srv://pratikkumar5750:mheekd9tSQqWF3ui@cluster0.x12xsyl.mongodb.net/?appName=Cluster0
-mongoose.connect("mongodb+srv://apple1fond:Qm409eH7wg1NSgMS@cluster0.smraf8h.mongodb.net/?appName=Cluster0")
+const MONGODB_URL = process.env.MONGODB_URL;
+
+mongoose.connect(MONGODB_URL)
     .then((result) => 
         console.log("Connected SuccessFully ")
     )
