@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const MONGODB_URLS = process.env.MONGODB_URL;
 console.log("URL: ",MONGODB_URLS);
 
-mongoose.connect(MONGODB_URL)
+mongoose.connect(MONGODB_URLS)
     .then((result) => 
         console.log("Connected SuccessFully ")
     )
