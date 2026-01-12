@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const connection = require("./connection");
 require("./cron/rssCron");
@@ -7,7 +8,7 @@ const Source = require("./routers/source");
 const cors = require("cors");
 const app = express();
 
-require("dotenv").config();
+
 
 app.use(express.json());
 
