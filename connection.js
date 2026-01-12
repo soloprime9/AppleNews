@@ -1,8 +1,8 @@
 //connection.js file
 const mongoose = require("mongoose");
 
-const MONGODB_URL = process.env.MONGODB_URL;
-// console.log("URL: ",MONGODB_URL);
+const MONGODB_URLS = process.env.MONGODB_URL;
+console.log("URL: ",MONGODB_URL);
 
 mongoose.connect(MONGODB_URL)
     .then((result) => 
