@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const Source = require("../models/Source");
 const fetchRSS = require("../services/rssFetcher");
 
-cron.schedule("*/10 * * * *", async () => {
+cron.schedule("*/1 * * * *", async () => {
   console.log("⏰ Cron started");
 
   const sources = await Source.find({ active: true });
