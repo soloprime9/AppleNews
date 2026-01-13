@@ -1,32 +1,18 @@
-//connection.js file
 const mongoose = require("mongoose");
 
-const MONGODB_URLS = process.env.MONGODB_URL;
-console.log("URL: ",MONGODB_URLS);
+const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGODB_URLS)
-    .then((result) => 
-        console.log("Connected SuccessFully ")
-    )
+console.log("Mongo URL:", MONGO_URI);
 
-    .catch(() => {
-        console.log("Not Connected To MongoDataBase")
-    })
+if (!MONGO_URI) {
+  console.error("❌ MONGO_URI not found in environment variables");
+  process.exit(1);
+}
 
-module.exports = mongoose;
-
-
-// //connection.js file
-// const mongoose = require("mongoose");
-
-
-// mongoose.connect("url")
-//     .then((result) => 
-//         console.log("Connected SuccessFully ")
-//     )
-
-//     .catch(() => {
-//         console.log("Not Connected To MongoDataBase")
-//     })
-
-// module.exports = mongoose;
+mongoose.connect(MONGO_URI)
+  .then(() => {
+    console.log("✅ MongoDB Connected Successfully");
+  })
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Failed:", err.message);
+  });
