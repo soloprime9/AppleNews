@@ -59,8 +59,9 @@ const Source = require("../models/Source");
 
     const result = await Source.bulkWrite(ops);
 
-    console.log("✅ Sources synced successfully");
-    console.log("🆕 Newly inserted:", result.upsertedCount);
+    console.log("🆕 Inserted:", result.upsertedCount);
+console.log("🔁 Matched:", result.matchedCount);
+console.log("✏️ Modified:", result.modifiedCount);
 
     process.exit(0);
   } catch (err) {
