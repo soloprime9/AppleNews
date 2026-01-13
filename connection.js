@@ -1,21 +1,21 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const MONGODB_URL = process.env.MONGODB_URL;
+// const MONGODB_URL = process.env.MONGODB_URL;
 
-console.log("Mongo URL:", MONGODB_URL);
+// console.log("Mongo URL:", MONGODB_URL);
 
-if (!MONGODB_URL) {
-  console.error("❌ MONGO_URI not found in environment variables");
-  process.exit(1);
-}
+// if (!MONGODB_URL) {
+//   console.error("❌ MONGO_URI not found in environment variables");
+//   process.exit(1);
+// }
 
-mongoose.connect(MONGODB_URL)
-  .then(() => {
-    console.log("✅ MongoDB Connected Successfully");
-  })
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Failed:", err.message);
-  });
+// mongoose.connect(MONGODB_URL)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected Successfully");
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Connection Failed:", err.message);
+//   });
 
 
 
