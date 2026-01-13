@@ -10,7 +10,7 @@ const Source = require("../models/Source");
         name: "MacRumors",
         website: "https://www.macrumors.com",
         rssUrl: "https://www.macrumors.com/macrumors.xml",
-        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/MacRumors.svg/960px-MacRumors.svg.png?20180527173458",
+        logo: "https://news.fondpeace.com/MacRumors.jpg",
         category: "Apple",
         active: true
       },
@@ -18,7 +18,7 @@ const Source = require("../models/Source");
         name: "9to5Mac",
         website: "https://9to5mac.com",
         rssUrl: "https://9to5mac.com/feed/",
-        logo: "https://9to5mac.com/wp-content/uploads/sites/6/2019/10/cropped-cropped-mac1-1.png?w=32",
+        logo: "https://news.fondpeace.com/9to5mac.jpg",
         category: "Apple",
         active: true
       },
@@ -26,7 +26,7 @@ const Source = require("../models/Source");
         name: "Cult of Mac",
         website: "https://www.cultofmac.com",
         rssUrl: "https://www.cultofmac.com/feed",
-        logo: "https://www.cultofmac.com/wp-content/uploads/2024/01/cropped-CoM_logo_blue_lrg-copy-80x80.jpg",
+        logo: "https://news.fondpeace.com/cultofapple.jpg",
         category: "Apple",
         active: true
       },
@@ -34,19 +34,28 @@ const Source = require("../models/Source");
         name: "Macworld",
         website: "https://www.macworld.com",
         rssUrl: "https://www.macworld.com/feed",
-        logo: "https://www.macworld.com/wp-content/uploads/2021/03/cropped-macworld-favicon.png?w=192",
+        logo: "https://news.fondpeace.com/Macworld.jpg",
         category: "Apple",
         active: true
       }
     ];
 
     const ops = sources.map(src => ({
-      updateOne: {
-        filter: { rssUrl: src.rssUrl },
-        update: { $setOnInsert: src },
-        upsert: true
+  updateOne: {
+    filter: { rssUrl: src.rssUrl },
+    update: {
+      $set: {
+        name: src.name,
+        website: src.website,
+        logo: src.logo,
+        category: src.category,
+        active: src.active
       }
-    }));
+    },
+    upsert: true
+  }
+}));
+
 
     const result = await Source.bulkWrite(ops);
 
