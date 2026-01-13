@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: ['https://computer-xrfg.vercel.app']
+  origin: ['https://computer-xrfg.vercel.app','https://news.fondpeace.com']
 }));
 
 app.get("/", async (req, res) => {
