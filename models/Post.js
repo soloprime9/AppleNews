@@ -7,6 +7,19 @@ const postSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
+    
+    pid: {
+      type: Number,
+      required: true,
+      unique: true,
+      index: true
+    },
+
+    slug: {
+      type: String,
+      required: true,
+      index: true
+    },
 
     excerpt: {
       type: String,
