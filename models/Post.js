@@ -21,6 +21,13 @@ const postSchema = new mongoose.Schema(
       index: true
     },
 
+    author: {
+    type: String,
+    trim: true,
+    index: true
+  },
+
+
     excerpt: {
       type: String,
       maxlength: 300
