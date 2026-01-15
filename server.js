@@ -15,6 +15,7 @@ app.use(
     origin: [
       "https://computer-xrfg.vercel.app",
       "https://news.fondpeace.com",
+      "http://localhost:3000"
     ],
   })
 );
